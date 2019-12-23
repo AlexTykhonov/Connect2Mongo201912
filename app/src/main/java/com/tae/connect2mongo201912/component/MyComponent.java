@@ -1,13 +1,11 @@
 package com.tae.connect2mongo201912.component;
 
 import android.app.Application;
-
+import android.content.SharedPreferences;
 import com.tae.connect2mongo201912.App;
 import com.tae.connect2mongo201912.module.MainActivityModule;
 import com.tae.connect2mongo201912.module.SharedPrefModule;
-
 import javax.inject.Singleton;
-
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.support.AndroidSupportInjectionModule;

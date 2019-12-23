@@ -14,11 +14,16 @@ public class RetrofitClient {
 
     HeaderInterceptor headerInterceptor;
 
+    public RetrofitClient(HeaderInterceptor headerInterceptor) {
+        this.headerInterceptor = headerInterceptor;
+        System.out.println("--------> HEADER INTERCEPTOR "+ headerInterceptor);
+    }
+
     public  Retrofit callRetrofit() {
         if (retrofit == null) {
 
             OkHttpClient.Builder sHttpClient = new OkHttpClient.Builder();
-            sHttpClient.addInterceptor(new HeaderInterceptor());
+            sHttpClient.addInterceptor(this.headerInterceptor);
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
