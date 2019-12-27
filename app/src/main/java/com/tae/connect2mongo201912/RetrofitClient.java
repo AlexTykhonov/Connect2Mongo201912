@@ -34,10 +34,4 @@ public class RetrofitClient {
         } return retrofit;
     }
 
-    public Api callApi ()
-    {
-        callRetrofit();
-        return this.retrofit.create(Api.class);
-    }
-
 }
