@@ -14,6 +14,7 @@ public class MotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moto_activity);
+        RecyclerView recyclerView = findViewById(R.id.listMoto);
 
         String[] newStrings;
         String newString;
@@ -27,8 +28,9 @@ public class MotoActivity extends AppCompatActivity {
                 newStrings = extras.getStringArray("MOTOS");
                 System.out.println("THIS IS newStringS: "+newStrings);
                 motocycles = convertStringsToList(newStrings);
+                System.out.println("++++++++++++++++++++++++++++++++MOTORCYCLES SIZE FROM MOTO ACTIVITY "+ motocycles.size());
+                System.out.println("++++++++++++++++++++++++++++++++MOTORCYCLES FROM MOTO ACTIVITY "+ motocycles);
 
-                RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listMoto);
                 RecViewAdapter adapter = new RecViewAdapter(this, motocycles);
                 recyclerView.setAdapter(adapter);
             }
