@@ -4,6 +4,8 @@ import com.tae.connect2mongo201912.model.Login;
 import com.tae.connect2mongo201912.model.Moto;
 import com.tae.connect2mongo201912.model.Token;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -17,6 +19,8 @@ public interface Api {
     Observable<Token> login(@Body Login login);
 
     @GET("moto")
-    Observable<List<Moto>> getMoto();
+    Observable<ArrayList<Moto>> getMoto();
 
 }
+
+// вывести в консоль список мото

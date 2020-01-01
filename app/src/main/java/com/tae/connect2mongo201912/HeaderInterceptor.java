@@ -23,10 +23,12 @@ public class HeaderInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> Call from INTERCEPTOR method"+chain.request().tag());
         Request original = chain.request();
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> ORIGINAL URL "+original.url());
         Request.Builder requestBuilder;
-        if(original.url().equals("https://fluxjwt.herokuapp.com/authorize/login")){
+        if(original.url().toString().equals("https://fluxjwt.herokuapp.com/authorize/login")){
             requestBuilder = original.newBuilder();
-          System.out.println(" !!!!!!!!!!!!!!!!!!!!!-------------> SharedPreferences.getString(token): "+sharedPreferences.getString("token","no token"));
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> ORIGINAL FORM IF URL "+original.url());
+            System.out.println(" !!!!!!!!!!!!!!!!!!!!!-------------> SharedPreferences.getString(token): "+sharedPreferences.getString("token","no token"));
         }
         else {
             requestBuilder = original.newBuilder()
