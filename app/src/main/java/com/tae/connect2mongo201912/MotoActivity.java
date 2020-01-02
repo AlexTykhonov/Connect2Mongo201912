@@ -2,13 +2,17 @@ package com.tae.connect2mongo201912;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.support.v7.widget.LinearLayoutManager.HORIZONTAL;
 
-public class MotoActivity extends AppCompatActivity {
+
+public class MotoActivity extends AppCompatActivity implements Serializable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,9 @@ public class MotoActivity extends AppCompatActivity {
 
                 RecViewAdapter adapter = new RecViewAdapter(this, motocycles);
                 recyclerView.setAdapter(adapter);
+                LinearLayoutManager llm = new LinearLayoutManager(this);
+                llm.setOrientation(LinearLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(llm);
             }
         } else {
             newString = (String) savedInstanceState.getSerializable("MOTOS");
